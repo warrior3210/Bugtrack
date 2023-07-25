@@ -1,0 +1,38 @@
+# Project by Ananay Rampal
+import MySQL.connector
+
+
+from tabulate import tabulate
+
+db = MySQL. connector. connect(
+    host="localhost",
+    user="root",
+    password="password",
+    database="bug_track"
+)
+
+cursor = db.cursor()
+
+
+
+while True:
+    print("WELCOME TO THE BUG TRACKING SYSTEM")
+    print("1. Login")
+    print("2. Exit")
+
+    option = int(input("Enter your option: "))
+
+    if option == 1:
+        login()
+    elif option == 2:
+        break
+    else:
+        print("Invalid option!")
+
+
+
+
+
+
+# Close the database connection
+db.close()

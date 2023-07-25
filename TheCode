@@ -30,8 +30,14 @@ def login():
 
 
 
-
-
+# CREATING DIFFERENT MODULES and services 
+1)ADMIN
+2)expert
+3)customer
+4)bug
+5)customer services
+6)expert services
+7)bug services
 
 
 

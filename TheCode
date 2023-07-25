@@ -15,6 +15,37 @@ cursor = db.cursor()
 
 
 
+def login():
+    while True:
+        print("1. EMPLOYEE LOGIN")
+        print("2. CUSTOMER ")
+        print("3. Exit")
+
+        choice = int(input("Enter your option: "))
+        try:
+            if choice == 1:
+                print("\n----WELCOME TO LOGIN BLOCK----\n")
+                login_id = input("Enter your login ID: ")
+                password = input("Enter your password: ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 while True:
     print("WELCOME TO THE BUG TRACKING SYSTEM")
     print("1. Login")

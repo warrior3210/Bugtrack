@@ -28,16 +28,16 @@ def login():
                 login_id = input("Enter your login ID: ")
                 password = input("Enter your password: ")
 
+                 query = "SELECT * FROM employee WHERE empLoginId = %s AND empPassword = %s"
+                cursor.execute(query, (login_id, password))
+                result = cursor.fetchone()
+
+                
 
 
-# CREATING DIFFERENT MODULES and services 
-1)ADMIN
-2)expert
-3)customer
-4)bug
-5)customer services
-6)expert services
-7)bug services
+
+
+
 
 defCustomer_module:
       print("Welcome to the Customer Module")

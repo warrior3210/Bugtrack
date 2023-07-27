@@ -32,6 +32,20 @@ def login():
                 cursor.execute(query, (login_id, password))
                 result = cursor.fetchone()
 
+                if result:
+                    emp_type = result[2]  # Get the employee type (Admin or Expert)
+                if emp_type == "ADMIN":
+                    admin_module()
+                elif emp_type == "EXPERT":
+                    expert_module()
+            if choice == 2:
+                    customer_module()
+
+            if choice == 3:
+                break
+        except:
+            print("Invalid Input.RETRY\n")
+
                 
 
 

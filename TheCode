@@ -39,6 +39,13 @@ def login():
 6)expert services
 7)bug services
 
+defCustomer_module:
+      print("Welcome to the Customer Module")
+      print("1.New user")
+      print("2.Existing User")
+      
+
+
 
 
 

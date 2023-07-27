@@ -38,6 +38,11 @@ def login():
                     admin_module()
                 elif emp_type == "EXPERT":
                     expert_module()
+            if choice == 2:
+                    customer_module()
+
+            if choice == 3:
+               
             
              
 

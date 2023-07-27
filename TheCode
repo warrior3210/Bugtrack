@@ -45,6 +45,18 @@ def login():
                  break
         except:
             print("Invalid Input.RETRY\n")
+
+
+def admin_module():
+    while True:
+        try:
+            print("\n-----WELCOME TO THE ADMIN MODULE-----\n ")
+            print("1. Customer Services")
+            print("2. Employee Services")
+            print("3. Bug Services")
+            print("4. Logout")
+
+            choice = int(input("Enter your choice: "))
                
             
              

@@ -112,19 +112,7 @@ def customer_services():
 
 
 
-while True:
-    print("WELCOME TO THE BUG TRACKING SYSTEM")
-    print("1. Login")
-    print("2. Exit")
 
-    option = int(input("Enter your option: "))
-
-    if option == 1:
-        login()
-    elif option == 2:
-        break
-    else:
-        print("Invalid option!")
 
 
 

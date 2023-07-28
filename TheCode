@@ -72,6 +72,20 @@ def admin_module():
             print("\n---INVALID ENTRY--- ")
 
 
+
+
+def customer_services():
+    while True:
+        try:
+            print("\n-----WELCOME TO THE CUSTOMER SERVICES.-----\n")
+            print("1. View All Customers")
+            print("2. Search Customers by Name")
+            print("3. Search Customers by Login ID")
+            print("4. Go Back")
+
+            choice = int(input("Enter your choice: "))
+
+
                
             
              

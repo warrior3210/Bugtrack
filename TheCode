@@ -57,6 +57,21 @@ def admin_module():
             print("4. Logout")
 
             choice = int(input("Enter your choice: "))
+
+            if choice == 1:
+                customer_services()
+            elif choice == 2:
+                employee_services()
+            elif choice == 3:
+                bug_services()
+            elif choice == 4:
+                break
+            else:
+                print("\n---Invalid choice!--- ")
+        except:
+            print("\n---INVALID ENTRY--- ")
+
+
                
             
              

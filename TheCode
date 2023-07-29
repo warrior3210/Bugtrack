@@ -22,7 +22,7 @@ def login():
         print("3. Exit")
 
         choice = int(input("Enter your option: "))
-        try:
+        
             if choice == 1:
                 print("\n----WELCOME TO LOGIN BLOCK----\n")
                 login_id = input("Enter your login ID: ")
@@ -43,13 +43,12 @@ def login():
 
             if choice == 3:
                  break
-        except:
-            print("Invalid Input.RETRY\n")
+        
 
 
 def admin_module():
     while True:
-        try:
+        
             print("\n-----WELCOME TO THE ADMIN MODULE-----\n ")
             print("1. Customer Services")
             print("2. Employee Services")
@@ -68,8 +67,7 @@ def admin_module():
                 break
             else:
                 print("\n---Invalid choice!--- ")
-        except:
-            print("\n---INVALID ENTRY--- ")
+        
 
 
 

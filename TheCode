@@ -84,6 +84,20 @@ def customer_services():
             choice = int(input("Enter your choice: "))
 
 
+            if choice == 1:
+                query = "SELECT * FROM customer"
+                cursor.execute(query)
+                results = cursor.fetchall()
+
+                if results:
+                    table = tabulate(results, headers=["ID", "Name", "Login ID", "Age", "Phone", "Email"],
+                                     tablefmt="pretty")
+                    print(table)
+
+                else:
+                    print("NO CUSTOMERS FOUND ")
+
+
                
             
              

@@ -111,6 +111,21 @@ def customer_services():
                     print("\nNO CUSTOMERS FOUND WITH THE NAME:", name )
 
 
+            elif choice == 3:
+                login_id = input("Enter the customer login ID: ")
+                query = "SELECT * FROM customer WHERE custLoginId = %s"
+                cursor.execute(query, (login_id,))
+                result = cursor.fetchall()
+
+                if result:
+                    table = tabulate(result, headers=["LoginId", "Password", "Name", "Age", "Phone", "Email"],
+                                     tablefmt="pretty")
+                    print(table)
+
+                else:
+                    print("\nNO CUSTOMER FOUND WITH THIS LOGIN ID:", login_id )
+
+
                
             
              

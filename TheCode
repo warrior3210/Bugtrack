@@ -125,6 +125,13 @@ def customer_services():
                 else:
                     print("\nNO CUSTOMER FOUND WITH THIS LOGIN ID:", login_id )
 
+            elif choice == 4:
+                break
+            else:
+                print("Invalid choice!")
+        except:
+            print("Invalid ENTRY")
+
 
                
             

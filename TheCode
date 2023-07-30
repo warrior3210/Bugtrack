@@ -74,7 +74,7 @@ def admin_module():
 
 def customer_services():
     while True:
-        try:
+        
             print("\n-----WELCOME TO THE CUSTOMER SERVICES.-----\n")
             print("1. View All Customers")
             print("2. Search Customers by Name")
@@ -129,8 +129,7 @@ def customer_services():
                 break
             else:
                 print("Invalid choice!")
-        except:
-            print("Invalid ENTRY")
+        
 
 
                

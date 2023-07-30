@@ -96,6 +96,19 @@ def customer_services():
 
                 else:
                     print("NO CUSTOMERS FOUND ")
+            elif choice == 2:
+                name = input("Enter the customer name: ")
+                query = "SELECT * FROM customer WHERE custName LIKE %s"
+                cursor.execute(query, ('%' + name + '%',))
+                results = cursor.fetchall()
+
+                if results:
+                    table = tabulate(results, headers=["LoginId", "Password", "Name", "Age", "Phone", "Email"],
+                                     tablefmt="pretty")
+                    print(table)
+
+                else:
+                    print("\nNO CUSTOMERS FOUND WITH THE NAME:", name )
 
 
                

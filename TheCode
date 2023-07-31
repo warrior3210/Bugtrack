@@ -129,6 +129,20 @@ def customer_services():
                 break
             else:
                 print("Invalid choice!")
+
+
+def employee_services():
+    while True:
+        try:
+            print("\n-----WELCOME TO THE EMPLOYEE SERVICES-----\n")
+            print("1. Add New Employee")
+            print("2. View All Employees")
+            print("3. Search Employees by Name")
+            print("4. Search Employees by Login ID")
+            print("5. Search Employees by Type")
+            print("6. Activate or Deactivate Employee")
+            print("7. Change Employee Password")
+            print("8. Go Back\n")
         
 
 

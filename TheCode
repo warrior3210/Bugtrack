@@ -167,6 +167,20 @@ def employee_services():
                 print("EMPLOYEE HAS BEEN ADDED SUCCESSFULLY")
 
 
+          elif choice == 2:
+                query = "SELECT * FROM employee"
+                cursor.execute(query)
+                results = cursor.fetchall()
+
+                if results:
+                    table = tabulate(results, headers=["empLoginId", "Password", "Type", "Name", "Phone", "Email","Status"],
+                                     tablefmt="pretty")
+                    print(table)
+
+                else:
+                    print("\nNO EMPLOYEE FOUND ")
+
+
         
         
 

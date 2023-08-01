@@ -143,6 +143,31 @@ def employee_services():
             print("6. Activate or Deactivate Employee")
             print("7. Change Employee Password")
             print("8. Go Back\n")
+
+
+
+           choice = int(input("Enter your choice: "))
+
+
+           if choice == 1:
+                print("---ENTER THE DETAILS---\n")
+                emp_login_id = input("Enter the employee login ID: ")
+                emp_password = input("Enter the employee password: ")
+                emp_type = input("Enter the employee type (Admin or Expert): ")
+                emp_name = input("Enter the employee name: ")
+                emp_phone = input("Enter the employee phone number: ")
+                emp_email = input("Enter the employee email: ")
+
+                query = "INSERT INTO employee (empLoginId, empPassword, empType, empName, empPhone, empEmail) " \
+                        "VALUES (%s, %s, %s, %s, %s, %s)"
+                values = (emp_login_id, emp_password, emp_type, emp_name, emp_phone, emp_email)
+                cursor.execute(query, values)
+                db.commit()
+
+                print("EMPLOYEE HAS BEEN ADDED SUCCESSFULLY")
+
+
+        
         
 
 

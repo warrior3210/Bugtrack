@@ -180,6 +180,20 @@ def employee_services():
                 else:
                     print("\nNO EMPLOYEE FOUND ")
 
+            elif choice == 3:
+                name = input("Enter the employee name: ")
+                query = "SELECT * FROM employee WHERE empName LIKE %s"
+                cursor.execute(query, ('%' + name + '%',))
+                results = cursor.fetchall()
+
+                if results:
+                    table = tabulate(results, headers=["empLoginId", "empPassword", "Type", "empName", "Phone", "Email",
+                                     "Status"],   tablefmt="pretty" )
+                    print(table)
+
+                else:
+                    print("\nNO EMPLOYEE FOUND WITH THE NAME:", name )
+
 
         
         

@@ -150,10 +150,10 @@ def employee_services():
 
 
            if choice == 1:
-                print("---ENTER THE DETAILS---\n")
+                print("/n---ENTER THE DETAILS---\n")
                 emp_login_id = input("Enter the employee login ID: ")
                 emp_password = input("Enter the employee password: ")
-                emp_type = input("Enter the employee type (Admin or Expert): ")
+                emp_type = input("Enter the employee type (ADMIN or EXPERT): ")
                 emp_name = input("Enter the employee name: ")
                 emp_phone = input("Enter the employee phone number: ")
                 emp_email = input("Enter the employee email: ")

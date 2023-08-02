@@ -133,7 +133,7 @@ def customer_services():
 
 def employee_services():
     while True:
-        try:
+    
             print("\n-----WELCOME TO THE EMPLOYEE SERVICES-----\n")
             print("1. Add New Employee")
             print("2. View All Employees")

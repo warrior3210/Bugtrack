@@ -195,6 +195,22 @@ def employee_services():
                     print("\nNO EMPLOYEE FOUND WITH THE NAME:", name )
 
 
+           elif choice == 4:
+                login_id = input("Enter the employee login ID: ")
+                query = "SELECT * FROM employee WHERE empLoginId = %s"
+                cursor.execute(query, (login_id,))
+                result = cursor.fetchall()
+
+                if result:
+                    table = tabulate(result, headers=["empLoginId", "empPassword", "Type", "empName", "Phone", "Email",
+                                                      "Status"],   tablefmt="pretty")
+                    print(table)
+                else:
+                    print("\nNO EMPLOYEE FOUND WITH LoginId:", login_id )
+
+          
+
+
         
         
 

@@ -208,6 +208,19 @@ def employee_services():
                 else:
                     print("\nNO EMPLOYEE FOUND WITH LoginId:", login_id )
 
+
+            elif choice == 5:
+                emp_type = input("Enter the employee type (Admin or Expert): ")
+                query = "SELECT * FROM employee WHERE empType = %s"
+                cursor.execute(query, (emp_type,))
+                results = cursor.fetchall()
+
+                if results:
+                    table = tabulate(results, headers=["empLoginId", "empPassword", "Type", "empName", "Phone", "Email",
+                                                       "Status"],   tablefmt="pretty")
+                    print(table)
+                else:
+                    print("\nNO EMPLOYEES FOUND UNDER THE TYPE:", emp_type )
           
 
 

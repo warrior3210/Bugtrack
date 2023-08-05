@@ -221,6 +221,16 @@ def employee_services():
                     print(table)
                 else:
                     print("\nNO EMPLOYEES FOUND UNDER THE TYPE:", emp_type )
+
+
+            elif choice == 6:
+                login_id = input("Enter the employee login ID: ")
+                status = input("Enter the new status (ACTIVE or INACTIVE): ")
+                query = "UPDATE employee SET empStatus = %s WHERE empLoginId = %s"
+                cursor.execute(query, (status, login_id))
+                db.commit()
+
+                print("\nEMPLOYEE STATUS SUCCESSFULLY UPDATED FOR LoginId:", login_id)
           
 
 

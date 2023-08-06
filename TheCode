@@ -231,6 +231,19 @@ def employee_services():
                 db.commit()
 
                 print("\nEMPLOYEE STATUS SUCCESSFULLY UPDATED FOR LoginId:", login_id)
+
+
+            elif choice == 7:
+                login_id = input("Enter the employee login ID: ")
+                new_password = input("Enter the new password: ")
+                query = "UPDATE employee SET empPassword = %s WHERE empLoginId = %s"
+                cursor.execute(query, (new_password, login_id))
+                db.commit()
+                print("EMPLOYEE PASSWORD CHANGED SUCCESSFULLY FOR LoginId:",login_id )
+            elif choice == 8:
+                break
+            else:
+                print("Invalid choice!")
           
 
 

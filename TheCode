@@ -244,6 +244,22 @@ def employee_services():
                 break
             else:
                 print("Invalid choice!")
+
+
+
+# Function to manage bug services in the admin module
+def bug_services():
+    while True:
+        try:
+            print("\nWELCOME TO THE BUG SERVICES\n")
+            print("1. View All Bugs")
+            print("2. Search Bugs by ID")
+            print("3. Search Bugs by Status")
+            print("4. Search Bugs by Customer Login ID")
+            print("5. Assign Bug to Expert")
+            print("6. Go Back\n")
+
+            choice = int(input("Enter your choice: "))
           
 
 

@@ -260,6 +260,20 @@ def bug_services():
             print("6. Go Back\n")
 
             choice = int(input("Enter your choice: "))
+
+            if choice == 1:
+                query = "SELECT * FROM bug"
+                cursor.execute(query)
+                results = cursor.fetchall()
+
+                if results:
+                    table = tabulate(results, headers=[ "BugId","BugEntered Date", "CustomerId", "BugStatus", 
+                                                        "DeviceType","BugDesc", "BugAssignedDate","ExpertId",
+                                                        "BugSolvedDate","BugSoln","Feedback"],
+                                     tablefmt="pretty")
+                    print(table)
+                else:
+                    print("NO BUGS FOUND")
           
 
 

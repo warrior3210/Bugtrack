@@ -274,6 +274,22 @@ def bug_services():
                     print(table)
                 else:
                     print("NO BUGS FOUND")
+
+            elif choice == 2:
+                bug_id = int(input("Enter the bug ID: "))
+                query = "SELECT * FROM bug WHERE bugId = %s"
+                cursor.execute(query, (bug_id,))
+                result = cursor.fetchall()
+
+                if result:
+                    table = tabulate(result, headers=["BugId", "BugEntered Date", "CustomerId", "BugStatus", 
+                                                      "DeviceType","BugDesc", "BugAssignedDate", "ExpertId", 
+                                                      "BugSolvedDate", "BugSoln", "Feedback"],
+                                     tablefmt="pretty")
+                    print(table)
+                # the table will be printed 
+                else:
+                    print("NO BUG FOUND FOR BugId:", bug_id )
           
 
 

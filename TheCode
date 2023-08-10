@@ -290,6 +290,19 @@ def bug_services():
                 # the table will be printed 
                 else:
                     print("NO BUG FOUND FOR BugId:", bug_id )
+         elif choice == 3:
+                status = input("Enter the bug status: ")
+                query = "SELECT * FROM bug WHERE bugStatus = %s"
+                cursor.execute(query, (status,))
+                results = cursor.fetchall()
+                if results:
+                    table = tabulate(results, headers=["BugId", "BugEntered Date", "CustomerId", "BugStatus", 
+                                                       "DeviceType","BugDesc", "BugAssignedDate", "ExpertId", 
+                                                       "BugSolvedDate", "BugSoln","Feedback"],
+                                     tablefmt="pretty")
+                    print(table)
+                else:
+                    print("NO BUGS FOUND WHERE STATUS:",status )
           
 
 

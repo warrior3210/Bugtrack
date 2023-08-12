@@ -317,6 +317,20 @@ def bug_services():
                     print(table)
                 else:
                     print("\nNO BUGS FOUND FOR CustomerId:", login_id)
+
+            elif choice == 5:
+                bug_id = int(input("Enter the bug ID: "))
+                expert_login_id = input("Enter the expert login ID: ")
+                query = "UPDATE bug SET expertLoginId = %s, bugStatus = 'Assigned', expertAssignedDate = NOW() " \
+                        "WHERE bugId = %s"
+                cursor.execute(query, (expert_login_id, bug_id))
+                db.commit()
+
+                print("\nBUG ASSIGNED TO THE EXPERT(expertId:)",expert_login_id, "SUCCESSFULLY")
+            elif choice == 6:
+                break
+            else:
+                print("Invalid Choice")
           
 
 

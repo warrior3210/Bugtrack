@@ -331,6 +331,19 @@ def bug_services():
                 break
             else:
                 print("Invalid Choice")
+
+# Expert module functions
+def expert_module():
+    while True:
+        print("\nWELCOME TO THE EXPERT MODULE\n")
+        print("1. View Assigned Bugs")
+        print("2. Filter Assigned Bugs by Status")
+        print("3. Solve Bug")
+        print("4. Change Password")
+        print("5. Logout\n")
+        # we will input the values 
+        choice = int(input("Enter your choice: "))
+
           
 
 

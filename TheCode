@@ -43,7 +43,30 @@ def login():
 
             if choice == 3:
                  break
-        
+
+
+def advanced_bug_search():
+    print("ADVANCED BUG SEARCH")
+    # Allow the user to input various criteria like product, status, severity, date, etc.
+    product = input("Enter product name: ")
+    status = input("Enter bug status: ")
+    severity = input("Enter bug severity: Critical/High/Medium/Low:")
+    # ... Add more criteria as needed
+    # Construct the query based on the entered criteria
+    query = "SELECT * FROM bug WHERE product = %s AND bugStatus = %s AND severity = %s"
+    values = (product, status, severity)
+    # Execute the query and fetch results
+    cursor.execute(query, values)
+    results = cursor.fetchall()
+    if results:
+        table = tabulate(results, headers=["BugId", "BugEntered Date", "CustomerId", "BugStatus", "DeviceType",
+                                           "BugDesc", "BugAssignedDate", "ExpertId", "BugSolvedDate", "BugSoln",
+                                           "Feedback"],
+                         tablefmt="pretty")
+        print(table)
+    else:
+        print("No bugs found with the specified criteria.")
+
 
 
 def admin_module():

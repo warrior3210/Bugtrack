@@ -381,6 +381,21 @@ def expert_module():
             else:
                 print("NO ASSIGNED BUGS FOUND FOR ID:", expert_login_id )
 
+        elif choice == 2:
+            expert_login_id = input("Enter your login ID: ")
+            status = input("Enter the bug status: ")
+            query = "SELECT * FROM bug WHERE expertLoginId = %s AND bugStatus = %s"
+            cursor.execute(query, (expert_login_id, status))
+            results = cursor.fetchall()
+            if results:
+                table = tabulate(results, headers=["BugId", "BugEntered Date", "CustomerId", "BugStatus",
+                                                   "DeviceType","BugDesc", "BugAssignedDate", "ExpertId", 
+                                                   "BugSolvedDate", "BugSoln","Feedback"],
+                                 tablefmt="pretty")
+                print(table)
+            else:
+                print("NO BUGS FOUND WITH SPECIFIED STATUS:",status )
+
           
 
 

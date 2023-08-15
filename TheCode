@@ -413,6 +413,19 @@ def expert_module():
                 db.commit()
 
                 print("BUG SOLUTION SUBMITTED SUCCESSFULLY ")
+
+        elif choice == 4:
+            expert_login_id = input("Enter your login ID: ")
+            new_password = input("Enter the new password: ")
+            query = "UPDATE employee SET empPassword = %s WHERE empLoginId = %s"
+            cursor.execute(query, (new_password, expert_login_id))
+            db.commit()
+            print("PASSWORD CHANGED SUCCESSFULLY")
+        elif choice == 5:
+            break
+        else:
+            print("Invalid choice!")
+
         
 
           

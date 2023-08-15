@@ -396,6 +396,25 @@ def expert_module():
             else:
                 print("NO BUGS FOUND WITH SPECIFIED STATUS:",status )
 
+        elif choice == 3:
+            bug_id = int(input("Enter the bug ID: "))
+            query = "SELECT * FROM bug WHERE bugId = %s"
+            cursor.execute(query, (bug_id,))
+            result = cursor.fetchall()
+            if result:
+                table = tabulate(result, headers=["BugId", "BugEntered Date", "CustomerId", "BugStatus",
+                                                  "DeviceType","BugDesc", "BugAssignedDate", "ExpertId",
+                                                  "BugSolvedDate", "BugSoln", "Feedback"],
+                                 tablefmt="pretty")
+                print(table)
+                solution = input("Enter the bug solution: ")
+                query = "UPDATE bug SET bugStatus = 'Solved', bugSolvedDate = NOW(), solution = %s WHERE bugId = %s"
+                cursor.execute(query, (solution, bug_id))
+                db.commit()
+
+                print("BUG SOLUTION SUBMITTED SUCCESSFULLY ")
+        
+
           
 
 

@@ -437,6 +437,19 @@ def customer_module():
         if choice == 1:
                 print( " WELCOME TO THE BUG TRACKING SYSTEM ")
                 print( " PLEASE CREATE AN ACCOUNT TO ACCESS THE SYSTEM\n\n ")
+                print( "---SOME INSTRUCTIONS FOR CREATING AN ACCOUNT---")
+                print( ">>THE LOGIN ID SHOULD BE OF THE FORMAT CU1XXX where CU2 is the code for customers.<<")
+                print(">>AGE AND PHONE NUMBER SHOULD BE IN NUMBERS ONLY .<<\n")
+
+                    cust_login_id = input("Enter the customer login ID:  ")
+                    query = "SELECT * FROM customer WHERE custLoginId = %s"
+                    cursor.execute(query, (cust_login_id,))
+                    result = cursor.fetchone()
+                    if result:
+                        print("Login ID is already taken. Please choose a different one.")
+                    else:
+                        pass
+
         
 
           

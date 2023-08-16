@@ -425,7 +425,18 @@ def expert_module():
             break
         else:
             print("Invalid choice!")
+# Customer module functions
+def customer_module():
+    while True:
+        print("\nWELCOME TO THE CUSTOMER MODULE\n")
+        print("1. NEW USER ")
+        print("2. EXISTING USER ")
+        print("3. EXIT")
 
+        choice = int(input("Enter your option: "))
+        if choice == 1:
+                print( " WELCOME TO THE BUG TRACKING SYSTEM ")
+                print( " PLEASE CREATE AN ACCOUNT TO ACCESS THE SYSTEM\n\n ")
         
 
           

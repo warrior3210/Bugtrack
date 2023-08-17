@@ -464,6 +464,20 @@ def customer_module():
 
                 print("\nYOUR ACCOUNT HAS BEEN CREATED SUCCESSFULLY. TAKE FULL USE OF THE FACILITIES AVAILABLE TO YOU")
 
+        if choice == 2:
+            login_id = input("Enter your login ID: ")
+            password = input("Enter your password: ")
+            query = "SELECT * FROM employee WHERE empLoginId = %s AND empPassword = %s"
+            cursor.execute(query, (login_id, password))
+            result = cursor.fetchone()
+
+            if result:
+                customer_module()
+            else:
+                print("Invalid login credentials!")
+
+            print("WELCOME BACK TO THE SYSTEM ")
+
         
 
           

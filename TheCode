@@ -450,6 +450,20 @@ def customer_module():
                     else:
                         pass
 
+                cust_password = input("Enter the customer password: ")
+                cust_name = input("Enter the customer name: ")
+                cust_age = int(input("Enter the customer age: "))
+                cust_phone = input("Enter the customer phone number: ")
+                cust_email = input("Enter the customer email: ")
+
+                query = "INSERT INTO customer (custLoginId, custPassword, custName, custAge, custPhone, custEmail) " \
+                        "VALUES (%s, %s, %s, %s, %s, %s)"
+                values = (cust_login_id, cust_password, cust_name, cust_age, cust_phone, cust_email)
+                cursor.execute(query, values)
+                db.commit()
+
+                print("\nYOUR ACCOUNT HAS BEEN CREATED SUCCESSFULLY. TAKE FULL USE OF THE FACILITIES AVAILABLE TO YOU")
+
         
 
           

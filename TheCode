@@ -477,6 +477,19 @@ def customer_module():
                 print("Invalid login credentials!")
 
             print("WELCOME BACK TO THE SYSTEM ")
+            print("WELCOME BACK TO THE SYSTEM ")
+            while True:
+                print("\nWELCOME TO THE CUSTOMER MODULE")
+                print("1. Update Account")
+                print("2. Post New Bug")
+                print("3. View All Bugs")
+                print("4. Search Bugs based on status")
+                print("5. View Bug Solution")
+                print("6. Feedback ")
+                print("7. Change Password")
+                print("8. Log Out")
+
+                choice = int(input("Enter your choice: "))
 
         
 

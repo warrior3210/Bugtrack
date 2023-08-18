@@ -490,6 +490,18 @@ def customer_module():
                 print("8. Log Out")
 
                 choice = int(input("Enter your choice: "))
+                
+                if choice == 1:
+                    cust_name = input("Enter the updated customer name: ")
+                    cust_age = int(input("Enter the updated customer age: "))
+                    cust_phone = input("Enter the updated customer phone number: ")
+                    cust_email = input("Enter the updated customer email: ")
+                    query = "UPDATE customer SET custName = %s, custAge = %s, custPhone = %s, custEmail = %s " \
+                        "WHERE custLoginId = %s"
+                    values = (cust_name, cust_age, cust_phone, cust_email, cust_login_id)
+                    cursor.execute(query, values)
+                    db.commit()
+                    print(" YOUR ACCOUNT HAS BEEN UPDATES SUCCESSFULLY.")
 
         
 

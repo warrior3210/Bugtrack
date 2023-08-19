@@ -530,6 +530,22 @@ def customer_module():
                         print(table)
                     else:
                         print("No bugs found.")
+                elif choice == 4:
+                    cust_login_id = input("Enter your login ID: ")
+                    bug_status = input("Enter the bug status: ")
+                    query = "SELECT * FROM bug WHERE bugStatus = %s"
+                    cursor.execute(query, (cust_login_id ,bug_status,))
+                    results = cursor.fetchall()
+
+                    if results:
+                        table = tabulate(results,
+                                         headers=["BugId", "BugEntered Date", "CustomerId", "BugStatus", 
+                                                  "DeviceType","BugDesc", "BugAssignedDate", "ExpertId",
+                                                  "BugSolvedDate", "BugSoln","Feedback"],
+                                         tablefmt="pretty")
+                        print(table)
+                    else:
+                        print("No bugs found with the specified status.")
 
         
 

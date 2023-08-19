@@ -503,6 +503,18 @@ def customer_module():
                     db.commit()
                     print(" YOUR ACCOUNT HAS BEEN UPDATES SUCCESSFULLY.")
 
+                elif choice == 2:
+                    # for posting the bug 
+                    cust_login_id = input("Enter your login ID: ")
+                    product_name = input("Enter the product name: ")
+                    bug_desc = input("Enter the bug description: ")
+                    query = "INSERT INTO bug (custLoginId, productName, bugDesc) VALUES (%s, %s, %s)"
+                    values = (cust_login_id, product_name, bug_desc)
+                    cursor.execute(query, values)
+                    db.commit()
+                    # commit completed
+                    print("YOUR BUG HAS BEEN POSTED SUCCESSFULLY.")
+
         
 
           

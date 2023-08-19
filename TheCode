@@ -67,6 +67,32 @@ def advanced_bug_search():
     else:
         print("No bugs found with the specified criteria.")
 
+def bug_tracking_dashboard():
+    query_total_bugs = "SELECT COUNT(*) FROM bug"
+    cursor.execute(query_total_bugs)
+    total_bugs = cursor.fetchone()[0]
+
+    query_open_bugs = "SELECT COUNT(*) FROM bug WHERE bugStatus = 'Open'"
+    cursor.execute(query_open_bugs)
+    open_bugs = cursor.fetchone()[0]
+
+    query_resolved_bugs = "SELECT COUNT(*) FROM bug WHERE bugStatus = 'Solved'"
+    cursor.execute(query_resolved_bugs)
+    resolved_bugs = cursor.fetchone()[0]
+
+    query_avg_resolution_time = "SELECT AVG(TIMESTAMPDIFF(HOUR, bugAssignedDate, bugSolvedDate)) " \
+                                "FROM bug WHERE bugStatus = 'Solved'"
+    cursor.execute(query_avg_resolution_time)
+    avg_resolution_time = cursor.fetchone()[0]
+
+    print("----- BUG TRACKING DASHBOARD -----")
+    print("Total Bugs:", total_bugs)
+    print("Open Bugs:", open_bugs)
+    print("Resolved Bugs:", resolved_bugs)
+    print("Average Resolution Time (hours):", avg_resolution_time)
+    print("-----------------------------------")
+
+
 
 
 def admin_module():
@@ -76,7 +102,8 @@ def admin_module():
             print("1. Customer Services")
             print("2. Employee Services")
             print("3. Bug Services")
-            print("4. Logout")
+            print("4. Bug Tracking Dashboard")
+            print("5. Logout")
 
             choice = int(input("Enter your choice: "))
 
@@ -87,6 +114,8 @@ def admin_module():
             elif choice == 3:
                 bug_services()
             elif choice == 4:
+                bug_tracking_dashboard()
+            elif choice == 5:
                 break
             else:
                 print("\n---Invalid choice!--- ")

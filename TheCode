@@ -576,6 +576,19 @@ def customer_module():
                     else:
                         print("No bugs found with the specified status.")
 
+                elif choice == 5:
+                    bug_id = int(input("Enter the bug ID: "))
+                    query = "SELECT solution FROM bug WHERE bugId = %s"
+                    cursor.execute(query, (bug_id,))
+                    result = cursor.fetchone()
+# to print the bug solution
+                    if result:
+                        print("Bug Solution:")
+                        print(result[0])
+                    else:
+                        print("Bug not found")
+
+
         
 
           

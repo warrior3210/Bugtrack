@@ -608,7 +608,29 @@ def customer_module():
                         print("Feedback submitted successfully.")
                     else:
                         print("Bug not found.")
+                elif choice == 7:
 
+                    login_id = input("Enter your login ID: ")
+                    current_password = input("Enter your current password: ")
+                    new_password = input("Enter your new password: ")
+                    query = "SELECT custLoginId FROM customer WHERE custLoginId = %s AND custPassword = %s"
+                    cursor.execute(query, (login_id, current_password))
+                    result = cursor.fetchone()
+
+                    if result:
+                        query = "UPDATE customer SET custPassword = %s WHERE custLoginId = %s"
+                        cursor.execute(query, (new_password, login_id))
+                        db.commit()
+                        print("Password changed successfully.")
+                    else:
+                        print("Invalid login ID or current password.")
+                elif choice == 8:
+                    break
+                else:
+                    print("Invalid choice!")
+
+        if choice == 3:
+            break
 
         
 

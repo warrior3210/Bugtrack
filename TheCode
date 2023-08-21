@@ -14,7 +14,17 @@ db = MySQL. connector. connect(
 cursor = db.cursor()
 
 
+def detect_duplicate_bugs(new_bug_report, existing_bug_reports):
+    vectorizer = TfidfVectorizer(stop_words='english')
+    vectors = vectorizer.fit_transform([new_bug_report] + existing_bug_reports)
 
+    similarity_matrix = cosine_similarity(vectors)
+    similarity_scores = similarity_matrix[0][1:]
+
+    threshold = 0.9  # You can adjust the similarity threshold
+    duplicates = [existing_bug_reports[i] for i, score in enumerate(similarity_scores) if score >= threshold]
+
+    return duplicates
 def login():
     while True:
         print("1. EMPLOYEE LOGIN")

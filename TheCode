@@ -642,6 +642,33 @@ def customer_module():
         if choice == 3:
             break
 
+def perform_analysis(query, analysis_type, headers):
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    if results:
+        print("-----", analysis_type, "ANALYSIS -----")
+        table = tabulate(results, headers=headers, tablefmt="pretty")
+        print(table)
+    else:
+        print("No data available for", analysis_type, "analysis.")
+
+def customer_analysis():
+    query = "SELECT custName, COUNT(bugId) AS TotalBugsPosted FROM customer LEFT JOIN bug " \
+            "ON customer.custLoginId = bug.custLoginId GROUP BY customer.custLoginId"
+    headers = ["Customer Name", "Total Bugs Posted"]
+    perform_analysis(query, "CUSTOMER", headers)
+
+def expert_analysis():
+    query = "SELECT empName, COUNT(bugId) AS TotalBugsAssigned FROM employee LEFT JOIN bug " \
+            "ON employee.empLoginId = bug.expertLoginId WHERE empType = 'EXPERT' GROUP BY employee.empLoginId"
+    headers = ["Expert Name", "Total Bugs Assigned"]
+    perform_analysis(query, "EXPERT", headers)
+
+
+
+
+
 # Main program flow
 while True:
     print("WELCOME TO THE BUG TRACKING SYSTEM")

@@ -767,6 +767,21 @@ def expert_performance_analysis():
     plt.legend()
     plt.tight_layout()
     plt.show()
+def bug_categories_analysis():
+    query = "SELECT SUBSTRING_INDEX(bugDesc, ' ', 1) AS bug_category, COUNT(*) AS count " \
+            "FROM bug GROUP BY bug_category"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+
+    plt.bar(df['bug_category'], df['count'])
+    plt.xlabel('Bug Categories')
+    plt.ylabel('Number of Bugs')
+    plt.title('Bug Categories Analysis')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
 
 
 

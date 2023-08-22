@@ -810,6 +810,34 @@ def bug_trends_by_product_analysis():
     plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
+def employee_activity_analysis():
+    query = "SELECT empName, COUNT(bugId) AS assigned_bugs, " \
+            "SUM(CASE WHEN bugStatus = 'Solved' THEN 1 ELSE 0 END) AS solved_bugs " \
+            "FROM employee LEFT JOIN bug ON employee.empLoginId = bug.expertLoginId " \
+            "GROUP BY empName"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    # Convert results to a Pandas DataFrame
+    import pandas as pd
+    df = pd.DataFrame(results)
+
+    # Calculate the unresolved bugs
+    df['unresolved_bugs'] = df['assigned_bugs'] - df['solved_bugs']
+
+    # Plotting the data
+    import matplotlib.pyplot as plt
+    plt.bar(df['empName'], df['assigned_bugs'], label='Assigned Bugs')
+    plt.bar(df['empName'], df['solved_bugs'], bottom=df['assigned_bugs'], label='Solved Bugs')
+    plt.xlabel('Employee Name')
+    plt.ylabel('Number of Bugs')
+    plt.title('Employee Activity Analysis')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.tight_layout()
+
+    # Display the plot
+    plt.show()
 
 
 
@@ -840,32 +868,7 @@ def analysis_module():
 
         choice = int(input("Enter your choice: "))
 
-        if choice == 1:
-            # Bug Status Analysis Over Time
-            # Query, convert to DataFrame, and plot the data
-            # ...
-
-        elif choice == 2:
-            # Bug Severity Analysis
-            # Query, convert to DataFrame, and plot the data
-            # ...
-
-        elif choice == 3:
-            # Bug Assignment Time Analysis
-            # Query, calculate average time, and display the result
-            # ...
-
-        elif choice == 4:
-            # Bug Resolution Time Analysis
-            # Query, calculate average time, and display the result
-            # ...
-
-        # ... (add more cases for other analysis features)
-
-        elif choice == 21:
-            break
-        else:
-            print("Invalid choice!")
+        
 
 
 

@@ -718,6 +718,35 @@ def bug_resolution_time_analysis():
     plt.xticks(rotation=45)
     plt.tight_layout()
 
+def customer_feedback_analysis():
+    query = "SELECT feedback, COUNT(*) AS count FROM bug WHERE feedback IS NOT NULL GROUP BY feedback"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+
+    plt.bar(df['feedback'], df['count'])
+    plt.xlabel('Feedback')
+    plt.ylabel('Number of Bugs')
+    plt.title('Customer Feedback Analysis')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+def bug_severity_analysis():
+    query = "SELECT severity, COUNT(*) AS count FROM bug GROUP BY severity"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+
+    plt.bar(df['severity'], df['count'])
+    plt.xlabel('Severity')
+    plt.ylabel('Number of Bugs')
+    plt.title('Bug Severity Analysis')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
 
 
 

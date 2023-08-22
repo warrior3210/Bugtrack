@@ -682,28 +682,28 @@ def perform_analysis_customer_expert():
             print("\n---Invalid choice!---")
 
 
+def bug_status_analysis():
+    query = "SELECT DATE(bugEnteredDate) AS date, bugStatus, COUNT(*) AS count " \
+            "FROM bug GROUP BY DATE(bugEnteredDate), bugStatus"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+    df['date'] = pd.to_datetime(df['date'])
+
+    # Pivot the DataFrame for plotting
+    pivot_df = df.pivot(index='date', columns='bugStatus', values='count')
+
+    pivot_df.plot(kind='line', stacked=True)
+    plt.xlabel('Date')
+    plt.ylabel('Number of Bugs')
+    plt.title('Bug Status Analysis Over Time')
+    plt.legend(title='Bug Status')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
 
 
-# Main program flow
-while True:
-    print("WELCOME TO THE BUG TRACKING SYSTEM")
-    print("1. Login")
-    print("2. Exit")
-
-    option = int(input("Enter your option: "))
-
-    if option == 1:
-        login()
-    elif option == 2:
-        break
-    else:
-        print("Invalid option!")
-
-import MySQL.connector
-import pandas as pd
-import matplotlib.pyplot as plt
-
-# ... (existing code)
 
 def analysis_module():
     while True:
@@ -758,6 +758,14 @@ def analysis_module():
             break
         else:
             print("Invalid choice!")
+
+
+
+
+
+
+
+
 
 # Main program flow
 while True:

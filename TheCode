@@ -699,6 +699,82 @@ while True:
     else:
         print("Invalid option!")
 
+import MySQL.connector
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# ... (existing code)
+
+def analysis_module():
+    while True:
+        print("\n----- ANALYSIS MODULE -----\n")
+        print("1. Bug Status Analysis Over Time")
+        print("2. Bug Severity Analysis")
+        print("3. Bug Assignment Time Analysis")
+        print("4. Bug Resolution Time Analysis")
+        print("5. Customer Feedback Analysis")
+        print("6. Expert Performance Analysis")
+        print("7. Bug Categories Analysis")
+        print("8. Customer Bug Posting Frequency")
+        print("9. Bug Trends by Product")
+        print("10. Bug Trends by Device Type")
+        print("11. Bug Patterns Analysis")
+        print("12. Bug Source Analysis")
+        print("13. Employee Activity Analysis")
+        print("14. Bug Interaction Analysis")
+        print("15. Bug Distribution by Customer Type")
+        print("16. Bug Impact Analysis")
+        print("17. Bug Trends Over Versions")
+        print("18. Bug Source Code Analysis")
+        print("19. Employee Workload Analysis")
+        print("20. Bug Resolution Pattern")
+        print("21. Go Back")
+
+        choice = int(input("Enter your choice: "))
+
+        if choice == 1:
+            # Bug Status Analysis Over Time
+            # Query, convert to DataFrame, and plot the data
+            # ...
+
+        elif choice == 2:
+            # Bug Severity Analysis
+            # Query, convert to DataFrame, and plot the data
+            # ...
+
+        elif choice == 3:
+            # Bug Assignment Time Analysis
+            # Query, calculate average time, and display the result
+            # ...
+
+        elif choice == 4:
+            # Bug Resolution Time Analysis
+            # Query, calculate average time, and display the result
+            # ...
+
+        # ... (add more cases for other analysis features)
+
+        elif choice == 21:
+            break
+        else:
+            print("Invalid choice!")
+
+# Main program flow
+while True:
+    print("WELCOME TO THE BUG TRACKING SYSTEM")
+    print("1. Login")
+    print("2. Exit")
+
+    option = int(input("Enter your option: "))
+
+    if option == 1:
+        login()
+    elif option == 2:
+        break
+    else:
+        print("Invalid option!")
+
+
 
         
 

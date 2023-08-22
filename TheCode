@@ -783,6 +783,33 @@ def bug_categories_analysis():
     plt.tight_layout()
     plt.show()
 
+def customer_bug_posting_frequency_analysis():
+    query = "SELECT custLoginId, COUNT(*) AS bug_count FROM bug GROUP BY custLoginId"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+
+    plt.hist(df['bug_count'], bins=10, edgecolor='black')
+    plt.xlabel('Number of Bugs Posted')
+    plt.ylabel('Number of Customers')
+    plt.title('Customer Bug Posting Frequency Analysis')
+    plt.tight_layout()
+    plt.show()
+def bug_trends_by_product_analysis():
+    query = "SELECT productName, COUNT(*) AS bug_count FROM bug GROUP BY productName"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+
+    plt.bar(df['productName'], df['bug_count'])
+    plt.xlabel('Product')
+    plt.ylabel('Number of Bugs')
+    plt.title('Bug Trends by Product Analysis')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
 
 
 

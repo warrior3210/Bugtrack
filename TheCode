@@ -665,6 +665,21 @@ def expert_analysis():
     headers = ["Expert Name", "Total Bugs Assigned"]
     perform_analysis(query, "EXPERT", headers)
 
+def perform_analysis_customer_expert():
+    while True:
+        print("\n----- ANALYSIS MENU -----\n")
+        print("1. Customer Analysis")
+        print("2. Expert Analysis")
+        print("3. Go Back")
+        choice = int(input("Enter your choice: "))
+        if choice == 1:
+            customer_analysis()
+        elif choice == 2:
+            expert_analysis()
+        elif choice == 3:
+            break
+        else:
+            print("\n---Invalid choice!---")
 
 
 

@@ -703,6 +703,22 @@ def bug_status_analysis():
     plt.tight_layout()
     plt.show()
 
+def bug_resolution_time_analysis():
+    query = "SELECT bugStatus, AVG(TIMESTAMPDIFF(HOUR, bugAssignedDate, bugSolvedDate)) AS avg_resolution_time " \
+            "FROM bug WHERE bugStatus = 'Solved' GROUP BY bugStatus"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+
+    plt.bar(df['bugStatus'], df['avg_resolution_time'])
+    plt.xlabel('Bug Status')
+    plt.ylabel('Average Resolution Time (hours)')
+    plt.title('Bug Resolution Time Analysis')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+
 
 
 def analysis_module():

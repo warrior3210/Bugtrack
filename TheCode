@@ -747,6 +747,27 @@ def bug_severity_analysis():
     plt.tight_layout()
     plt.show()
 
+def expert_performance_analysis():
+    query = "SELECT empName, COUNT(*) AS assigned_bugs, " \
+            "SUM(CASE WHEN bugStatus = 'Solved' THEN 1 ELSE 0 END) AS solved_bugs, " \
+            "AVG(TIMESTAMPDIFF(HOUR, bugAssignedDate, bugSolvedDate)) AS avg_resolution_time " \
+            "FROM bug INNER JOIN employee ON bug.expertLoginId = employee.empLoginId " \
+            "GROUP BY empName"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    df = pd.DataFrame(results)
+
+    plt.bar(df['empName'], df['assigned_bugs'], label='Assigned Bugs')
+    plt.bar(df['empName'], df['solved_bugs'], label='Solved Bugs')
+    plt.xlabel('Experts')
+    plt.ylabel('Number of Bugs')
+    plt.title('Expert Performance Analysis')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
 
 
 

@@ -839,6 +839,26 @@ def employee_activity_analysis():
     # Display the plot
     plt.show()
 
+def bug_trends_over_versions():
+    query = "SELECT productName, COUNT(*) AS count FROM bug GROUP BY productName"
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    # Convert results to a Pandas DataFrame
+    import pandas as pd
+    df = pd.DataFrame(results)
+
+    # Plotting the data
+    import matplotlib.pyplot as plt
+    df.plot(x='productName', y='count', kind='bar')
+    plt.xlabel('Product')
+    plt.ylabel('Number of Bugs')
+    plt.title('Bug Trends Over Versions')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    # Display the plot
+    plt.show()
 
 
 def analysis_module():
